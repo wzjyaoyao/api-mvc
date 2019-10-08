@@ -1,0 +1,34 @@
+<?php
+return [
+    'error_code'=>[
+        1000=>'来源错误',
+        1001=>'参数无效',
+        1002=>'签名失败',
+        1003=>'需要登录',
+        1004=>'权限拒绝',
+        1005=>'请求异常',
+        1006=>'操作失败',
+        1007=>'服务失败',
+    ],
+    // 子错误列表
+    'sub_error'=>[
+        'params_invalid'=>'参数无效',
+		'check_config_invalid'=>'验证开关配置无效',
+        'connect_redis_fail'=>'连接redis失败',
+        'connect_mysql_fail'=>'连接mysql失败',
+        'service_catch'=>'服务异常'
+    ],
+    'log_msg'=>[
+        'db'=>'db_exception',
+        'mongodb'=>'mongodb_exception',
+        'route'=>'route_exception',
+        'smarty'=>'smarty_exception',
+        'logic'=>'logic_exception',
+        'api'=>'api_error',
+        'access'=>'access_log'
+    ],
+    'log_status'=>[
+        'fail'=>'fail',
+        'suc'=>'success'
+    ]
+];

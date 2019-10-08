@@ -1,0 +1,59 @@
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <table class="layui-hide" id="test-table-simple"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item layui-layout-admin">
+        <div class="layui-input-block">
+            <div class="layui-footer"  style="left: 0;">
+                <button class="layui-btn" id="table-form-submit">立即提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/hoowuadmin.v1.2.1/hoowuui/layui.js"></script>
+<script>
+    layui.config({
+        base: '/hoowuadmin.v1.2.1/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'form', 'jquery','table'], function(){
+        var $ = layui.jquery
+            ,admin = layui.admin
+            ,table = layui.table;
+
+        table.render({
+            elem: '#test-table-simple'
+            ,url: '/admin/api/table'
+            ,height: 'full-100'
+            ,cols: [[
+                {field:'id', title: '等级'}
+                ,{field:'coin', title: '升级所需金币总数',edit: 'text'}
+                ,{field:'bonus', title: '商品收益增益比例(1%配为100)', edit: 'text'}
+            ]]
+        });
+        $('#table-form-submit').click(function () {
+            var tableData = {level:table.cache["test-table-simple"]};
+            $.ajax({
+                url: "/admin/api/table/save",
+                type: "POST",
+                data:tableData,
+                dataType: "json",//回调函数接收数据的数据格式
+                async: false,//这得注意是同步
+                success: function (result) {
+                    if(result.code == 1){
+                        layer.msg(result.msg,{time: 2000});
+                    } else {
+                        layer.msg(result.msg,{time: 2000});
+                    }
+                }
+            });
+        });
+    });
+</script>

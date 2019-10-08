@@ -1,0 +1,47 @@
+
+<!-- 侧边菜单 -->
+<div class="layui-side layui-side-menu">
+    <div class="layui-side-scroll">
+        <div class="layui-logo" lay-href="/admin/level">
+            <p style="font-size: x-large">互动管理平台</p>
+        </div>
+
+        <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+            <li data-name="home" class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;" lay-tips="欢迎页" lay-direction="2">
+                    <i class="layui-icon layui-icon-home"></i>
+                    <cite>主页</cite>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd data-name="console" class="layui-this">
+                        <a lay-href="/admin/level">超市等级配置</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="/admin/container">货柜管理</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="/admin/goods">商品管理</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="/admin/order">每日订单</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="/admin/task">每日任务</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="/admin/market">午市和晚市</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="/admin/sign">签到奖励</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="/admin/skin">皮肤权益</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="/admin/ad">广告位管理</a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>

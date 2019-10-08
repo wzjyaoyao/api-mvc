@@ -1,0 +1,131 @@
+<div class="row">
+
+    <div class="col-md-12">
+
+        <?php if ($tips) { ?>
+        <div class="alert alert-<?php echo $state; ?> alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo $tips; ?>
+        </div>
+        <?php } ?>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">录入编辑页面</div>
+            <div class="panel-body">
+                <ul class="list-group pull-right col-md-offset-7" style="position: absolute;">
+                    <li class="list-group-item list-group-item-warning">表单收集配置-别名<code>活动ID_表名称</code> 例如<code>s002_user_collect</code></li>
+                    <li class="list-group-item list-group-item-warning">奖池和奖品配置-奖品ID<code>活动ID_奖品ID</code> 例如<code>s002_7</code></li>
+                </ul>
+                <form class="form-horizontal" method="post" action="/admin/edit">
+                    <div class="form-group clearfix">
+                        <label class="col-sm-2 control-label">活动ID</label>
+                        <div class="col-sm-2">
+                            <input name="activity_id" value="<?php echo $info['activity_id']; ?>" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-sm-2 control-label">活动名称</label>
+                        <div class="col-sm-2">
+                            <input name="title" value="<?php echo $info['title']; ?>" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">有效期</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="time" id="timer" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">商家英文别名</label>
+                        <div class="col-sm-2">
+                            <input name="pid" value="<?php echo $info['pid']; ?>" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">开发者</label>
+                        <div class="col-sm-2">
+                            <input name="develop_user" value="<?php echo $info['develop_user']; ?>" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">产品负责人</label>
+                        <div class="col-sm-2">
+                            <input name="product_user" value="<?php echo $info['product_user']; ?>" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width:100%">
+                        <label class="col-sm-2 control-label">活动配置</label>
+                        <div class="col-sm-10">
+                    <textarea rows="24" cols="90" name="config" class="form-control" style="font-size: 20px"><?php
+                    $_config = json_decode($info['config'],true);
+                    foreach($_config as $_k=>$_c) {
+                          echo $_k."=>".$_c."\n";
+                    }
+                    ?></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="hidden" name="id" value="<?php echo $info['id']; ?>"/>
+                            <button type="submit" class="btn btn-success">保存发布</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $("#timer").daterangepicker({
+        // "ranges" : {
+        //     "今日": [moment().startOf("day"), moment()],
+        //     "昨日": [moment().subtract("days", 1).startOf("day"), moment().subtract("days", 1).endOf("day")],
+        //     "最近7日": [moment().subtract("days", 6), moment()],
+        //     "最近30日": [moment().subtract("days", 29), moment()],
+        //     "本月": [moment().startOf("month"),moment().endOf("month")],
+        //     "上个月": [moment().subtract(1,"month").startOf("month"),moment().subtract(1,"month").endOf("month")]
+        // },
+        "locale": {
+            "format": "YYYY-MM-DD",
+            "separator": " - ",
+            "applyLabel": "应用",
+            "cancelLabel": "取消",
+            "fromLabel": "开始时间",
+            "toLabel": "结束时间",
+            "customRangeLabel": "自定义",
+            "weekLabel": "周",
+            "daysOfWeek": [
+                "7",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+            ],
+            "monthNames": [
+                "1月",
+                "2月",
+                "3月",
+                "4月",
+                "5月",
+                "6月",
+                "7月",
+                "8月",
+                "9月",
+                "10月",
+                "11月",
+                "12月"
+            ],
+            "firstDay": 1
+        },
+        "alwaysShowCalendars": true,
+        "startDate": "<?php if (empty($info['start_time'])) {echo date('Y-m-d');} else {echo $info['start_time'];} ?>",
+        "endDate": "<?php if (empty($info['start_time'])) {echo date('Y-m-d');} else { echo $info['end_time'];} ?>"
+    });
+    $().alert();
+</script>

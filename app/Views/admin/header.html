@@ -1,0 +1,37 @@
+<div class="layui-header">
+    <!-- 头部区域 -->
+    <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item layadmin-flexible" lay-unselect>
+            <a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
+                <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+            </a>
+        </li>
+        <li class="layui-nav-item" lay-unselect>
+            <a href="javascript:;" layadmin-event="refresh" title="刷新">
+                <i class="layui-icon layui-icon-refresh-3"></i>
+            </a>
+        </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+        <li class="layui-nav-item layui-hide-xs" lay-unselect>
+            <a href="javascript:;" layadmin-event="note">
+                <i class="layui-icon layui-icon-note"></i>
+            </a>
+        </li>
+        <li class="layui-nav-item layui-hide-xs" lay-unselect>
+            <a href="javascript:;" layadmin-event="fullscreen">
+                <i class="layui-icon layui-icon-screen-full"></i>
+            </a>
+        </li>
+        <li class="layui-nav-item" lay-unselect>
+            <a href="javascript:;">
+                <img src="<?php echo $_SESSION['admin_user']['avatar']?>" class="layui-circle" width="35"> <cite><?php echo $_SESSION['admin_user']['nickname']?></cite>
+            </a>
+        </li>
+        <li class="layui-nav-item layui-hide-xs" lay-unselect>
+            <a href="/admin/logout" layadmin-event="fullscreen">
+                退出
+            </a>
+        </li>
+    </ul>
+</div>
