@@ -1,7 +1,7 @@
 {
-    "name": "self/framework",
-    "description": "https://api.framework.com",
-    "keywords": ["framework", "api"],
+    "name": "wzj/framework",
+    "description": "this is my framework",
+    "keywords": ["framework", "self"],
     "license": "MIT",
     "type": "project",
     "require": {
