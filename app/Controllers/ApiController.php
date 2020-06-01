@@ -1,4 +1,5 @@
 <?php
+namespace App\Controllers;
 use \App\Services\AdminService;
 class ApiController {
 	const SESSION_KEY = 'admin_user';
@@ -57,6 +58,9 @@ class ApiController {
             'code'=>0,
             'msg'=>$msg
         ],JSON_UNESCAPED_UNICODE));
+    }
+    public function test() {
+        exit(json_encode(['code'=>0,'msg'=>'成功'],JSON_UNESCAPED_UNICODE));
     }
 }
 

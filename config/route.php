@@ -2,6 +2,7 @@
 return [
     'path'=>[
 		// 后台
+        '/api/test'=>'ApiController@test',
 		'/admin/index'=>'AdminController@index', // 首页
 		'/admin/edit'=>'AdminController@edit', // 编辑界面
 		'/admin/login'=>'AdminController@login', // 登录

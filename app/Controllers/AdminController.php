@@ -1,4 +1,5 @@
 <?php
+namespace App\Controllers;
 use \App\Services\AdminService;
 class AdminController {
 	const SESSION_KEY = 'admin_user';

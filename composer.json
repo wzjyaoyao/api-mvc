@@ -1,7 +1,7 @@
 {
-    "name": "wzjyaoyao/framework",
+    "name": "wzjyaoyao/api-mvc",
     "description": "this is my framework",
-    "keywords": ["framework", "self"],
+    "keywords": ["api-mvc", "self"],
     "license": "MIT",
     "type": "project",
     "require": {
